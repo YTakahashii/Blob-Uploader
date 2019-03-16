@@ -129,7 +129,7 @@ const execute = async () => {
     const containerName = process.env.CONTAINER_NAME
     const localFilePath = process.env.FILE_PATH
     let response
-    if (containerName == undefined || localFilePath || undefined) {
+    if (containerName == undefined || localFilePath == undefined) {
         console.log('$CONTAINER_NAMEと$FILE_PATHを設定してください。')
         return
     }
