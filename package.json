@@ -11,5 +11,10 @@
     "url": "https://jbshakodate.visualstudio.com/HeartWeather/_git/Blob-Uploader"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "azure-storage": "^2.10.2",
+    "dotenv": "^7.0.0",
+    "yargs": "^13.2.2"
+  }
 }
