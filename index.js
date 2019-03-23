@@ -127,11 +127,19 @@ const deleteContainer = async containerName => {
 
 const execute = async () => {
     const containerName = process.env.CONTAINER_NAME
-    const localFilePath = process.env.FILE_PATH
+    const fileDirectoryPath = process.env.FILE_DIRECTORY_PATH
+    const localFilePath = undefined
+    const fs = require('fs');
+    fs.readdir(fileDirectoryPath , (err, files) => {
+        if (err) throw err;
+        console.log(files);
+        localFilePath = files[0]
+    });
+
     let response
     if (containerName == undefined || localFilePath == undefined) {
-        console.log('$CONTAINER_NAMEと$FILE_PATHを設定してください。')
-        return
+        console.log('$CONTAINER_NAMEと$FILE_DIRECTORY_PATHを設定してください。')
+        throw new Error('$CONTAINER_NAMEと$FILE_DIRECTORY_PATHを設定してください。')
     }
 
     console.log('Containers:')
