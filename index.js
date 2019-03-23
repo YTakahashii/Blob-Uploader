@@ -130,12 +130,8 @@ const execute = async () => {
   const fileDirectoryPath = process.env.FILE_DIRECTORY_PATH
   let localFilePath
   const fs = require('fs')
-  fs.readdirSync(fileDirectoryPath, (err, files) => {
-    if (err) throw err
-    console.log(files)
-    localFilePath = files[0]
-  })
-
+  const files = fs.readdirSync(fileDirectoryPath)
+  localFilePath = files[0]
   let response
   if (containerName == undefined || localFilePath == undefined) {
     console.log('$CONTAINER_NAMEと$FILE_DIRECTORY_PATHを設定してください。')
