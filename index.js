@@ -130,7 +130,7 @@ const execute = async () => {
   const fileDirectoryPath = process.env.FILE_DIRECTORY_PATH
   let localFilePath
   const fs = require('fs')
-  fs.readdir(fileDirectoryPath, (err, files) => {
+  fs.readdirSync(fileDirectoryPath, (err, files) => {
     if (err) throw err
     console.log(files)
     localFilePath = files[0]
